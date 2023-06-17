@@ -1,7 +1,3 @@
-section {
-  margin: 0.5rem 0;
-}
-
 section .title {
   color: #fff;
   font-size: 1.1rem;
@@ -12,5 +8,4 @@ section .title {
 
 section div {
   border: 1px solid #aab5df;
-  padding: 0.5rem;
 }
