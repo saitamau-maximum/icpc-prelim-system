@@ -1,0 +1,17 @@
+.progress td {
+  width: 64px;
+  height: 64px;
+}
+
+.progress td.blue {
+  background-color: #b3b3ff;
+}
+.progress td.yellow {
+  background-color: #ffffb3;
+}
+.progress td.green {
+  background-color: #b3ffb3;
+}
+.progress td.red {
+  background-color: #f9adad;
+}
