@@ -1,3 +1,3 @@
 export default function Help() {
-  return <>help</>;
+  return <div>help</div>;
 }

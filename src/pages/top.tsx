@@ -6,7 +6,7 @@ import Progress from "../components/progress";
 
 export default function Top() {
   return (
-    <>
+    <div>
       <Stage />
       <Progress />
       <Section title="Problems">
@@ -50,6 +50,6 @@ export default function Top() {
           Get data and send answer <Link to="/workplace">here</Link>
         </p>
       </Section>
-    </>
+    </div>
   );
 }

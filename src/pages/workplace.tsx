@@ -4,5 +4,5 @@ export default function Workplace() {
   init().then(() => {
     greet("workplace");
   });
-  return <>workplace</>;
+  return <div>workplace</div>;
 }

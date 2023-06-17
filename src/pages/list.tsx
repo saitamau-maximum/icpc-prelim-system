@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function List() {
   return (
-    <>
+    <div>
       <Link to="/" reloadDocument>
         Back
       </Link>
@@ -28,6 +28,6 @@ export default function List() {
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
