@@ -2,6 +2,7 @@
   "name": "icpc-prelim-system",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://saitamau-maximum.github.io/icpc-prelim-system/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
