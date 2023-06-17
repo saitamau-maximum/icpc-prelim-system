@@ -1,22 +1,31 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import logo from "./logo.svg";
+import { convertPath } from "./utils/path";
 import "./App.css";
 
 import Home from "./pages/index";
 import Top from "./pages/top";
 
 function App() {
+  // URL 正規化
+  if (location.pathname.includes("//")) {
+    location.pathname = location.pathname.replace(/\/+/g, "/");
+    return;
+  }
+  if (!location.pathname.endsWith("/")) {
+    location.pathname += "/";
+    return;
+  }
+
   return (
     <div className="App">
       <header className="App-header">Maximum ICPC Practice System</header>
       <div className="container">
-        {location.pathname === "%PUBLIC_URL%/" ? (
+        {location.pathname === convertPath("/") ? (
           <></>
         ) : (
           <section className="App-sidebar">
-            <a href="%PUBLIC_URL%/top">Top</a>
+            <a href={convertPath("/top/")}>Top</a>
             <br />
             Problems:
             <table>
@@ -53,22 +62,22 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <a href="%PUBLIC_URL%/workspace">Workspace</a>
+            <a href={convertPath("/workspace/")}>Workspace</a>
             <br />
-            <a href="%PUBLIC_URL%/standings">Standings</a>
+            <a href={convertPath("/standings/")}>Standings</a>
             <br />
-            <a href="%PUBLIC_URL%/">Log Out</a>
+            <a href={convertPath("/")}>Log Out</a>
             <br />
-            <a href="%PUBLIC_URL%/help">Help</a>
+            <a href={convertPath("/help/")}>Help</a>
             <br />
-            <a href="%PUBLIC_URL%/contact">Contact Info</a>
+            <a href={convertPath("/contact/")}>Contact Info</a>
           </section>
         )}
         <main>
           <Router>
             <Routes>
-              <Route path="%PUBLIC_URL%/" element={<Home />} />
-              <Route path="%PUBLIC_URL%/top" element={<Top />} />
+              <Route path={convertPath("/")} element={<Home />} />
+              <Route path={convertPath("/top/")} element={<Top />} />
             </Routes>
           </Router>
         </main>

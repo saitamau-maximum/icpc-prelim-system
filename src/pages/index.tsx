@@ -1,3 +1,5 @@
+import { convertPath } from "../utils/path";
+
 export default function Index() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function Index() {
       <br />
       Password: <input type="password" />
       <br />
-      <a href="%PUBLIC_URL%/top">Login</a>
+      <a href={convertPath("/top/")}>Login</a>
     </>
   );
 }
