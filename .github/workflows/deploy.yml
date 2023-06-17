@@ -30,6 +30,10 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "wasm -> wasm/target"
       - name: Setup wasm-pack
         uses: actions-rs/cargo@v1
         with:
