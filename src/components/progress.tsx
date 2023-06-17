@@ -1,7 +1,7 @@
 import Section from "./section";
 import "./progress.css";
 
-export default function progress() {
+export default function Progress() {
   return (
     <Section title="Team 0: You">
       <table>

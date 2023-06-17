@@ -1,6 +1,6 @@
 import "./section.css";
 
-export default function section({
+export default function Section({
   children,
   title,
 }: {

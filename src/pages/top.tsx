@@ -4,7 +4,7 @@ import Section from "../components/section";
 import Stage from "../components/stage";
 import Progress from "../components/progress";
 
-export default function top() {
+export default function Top() {
   return (
     <>
       <Stage />

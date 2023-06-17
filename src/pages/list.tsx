@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function help() {
+export default function List() {
   return (
     <>
       <Link to="/" reloadDocument>

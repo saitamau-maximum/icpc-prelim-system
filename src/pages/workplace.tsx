@@ -1,6 +1,6 @@
 import init, { greet } from "../wasm/wasm";
 
-export default function workplace() {
+export default function Workplace() {
   init().then(() => {
     greet("workplace");
   });

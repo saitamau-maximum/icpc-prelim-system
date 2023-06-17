@@ -1,4 +1,4 @@
-export default function standings() {
+export default function Standings() {
   return (
     <>
       <h1>Standings</h1>

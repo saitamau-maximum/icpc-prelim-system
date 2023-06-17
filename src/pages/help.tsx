@@ -1,3 +1,3 @@
-export default function help() {
+export default function Help() {
   return <>help</>;
 }
