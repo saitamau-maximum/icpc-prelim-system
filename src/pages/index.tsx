@@ -1,4 +1,4 @@
-import { convertPath } from "../utils/path";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
@@ -8,7 +8,9 @@ export default function Index() {
       <br />
       Password: <input type="password" />
       <br />
-      <a href={convertPath("/top")}>Login</a>
+      <Link to="/top" reloadDocument>
+        Login
+      </Link>
     </>
   );
 }
