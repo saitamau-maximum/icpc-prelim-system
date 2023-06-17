@@ -5,7 +5,7 @@ import "./App.css";
 
 import Home from "./pages/index";
 import Top from "./pages/top";
-import Workspace from "./pages/workspace";
+import Workplace from "./pages/workplace";
 import Standings from "./pages/standings";
 import Help from "./pages/help";
 import Contact from "./pages/contact";
@@ -82,8 +82,8 @@ function App() {
                   </tr>
                 </tbody>
               </table>
-              <Link to="/workspace" reloadDocument>
-                Workspace
+              <Link to="/workplace" reloadDocument>
+                Workplace
               </Link>
               <br />
               <Link to="/standings" reloadDocument>
@@ -107,7 +107,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/top" element={<Top />} />
-              <Route path="/workspace" element={<Workspace />} />
+              <Route path="/workplace" element={<Workplace />} />
               <Route path="/standings" element={<Standings />} />
               <Route path="/help" element={<Help />} />
               <Route path="/contact" element={<Contact />} />
