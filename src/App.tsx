@@ -1,8 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import logo from "./logo.svg";
 import "./App.css";
 
-function App({ children }: { children: React.ReactNode }) {
+import Home from "./pages/index";
+import Top from "./pages/top";
+
+function App() {
   return (
     <div className="App">
       <header className="App-header">Maximum ICPC Practice System</header>
@@ -55,7 +60,14 @@ function App({ children }: { children: React.ReactNode }) {
           <br />
           <a href="/contact">Contact Info</a>
         </section>
-        <main>{children}</main>
+        <main>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/top" element={<Top />} />
+            </Routes>
+          </Router>
+        </main>
       </div>
     </div>
   );
