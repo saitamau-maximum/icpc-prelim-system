@@ -26,10 +26,22 @@ jobs:
         with:
           node-version: "18"
           cache: "yarn"
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Setup wasm-pack
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: wasm-pack
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: yarn
+      - name: Build wasm
+        run: wasm-pack build --target web --out-dir ../src/wasm/
+        working-directory: ./wasm
       - name: Build
         run: yarn build && yarn postbuild
       - name: Upload artifact
