@@ -1,0 +1,17 @@
+section {
+  margin: 0.5rem 0;
+}
+
+section .title {
+  background-color: #33f;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+section div {
+  border: 1px solid #aab5df;
+  padding: 0.5rem;
+}
