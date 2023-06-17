@@ -1,8 +1,13 @@
+import Progress from "../components/progress";
+import Section from "../components/section";
+import Stage from "../components/stage";
+
 export default function Standings() {
   return (
     <div>
-      <h1>Standings</h1>
-      <p>Not shown</p>
+      <Stage />
+      <Progress />
+      <Section title="Standings">Not shown</Section>
     </div>
   );
 }
