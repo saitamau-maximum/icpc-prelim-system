@@ -5,6 +5,10 @@ import "./App.css";
 
 import Home from "./pages/index";
 import Top from "./pages/top";
+import Workspace from "./pages/workspace";
+import Standings from "./pages/standings";
+import Help from "./pages/help";
+import Contact from "./pages/contact";
 
 function App() {
   // URL 正規化
@@ -98,6 +102,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/top" element={<Top />} />
+              <Route path="/workspace" element={<Workspace />} />
+              <Route path="/standings" element={<Standings />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
         </div>
