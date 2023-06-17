@@ -33,7 +33,7 @@ jobs:
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
         with:
-          workspaces: "wasm -> wasm/target"
+          workspaces: "wasm -> target"
       - name: Setup wasm-pack
         uses: actions-rs/cargo@v1
         with:
