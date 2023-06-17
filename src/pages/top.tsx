@@ -47,7 +47,10 @@ export default function Top() {
       </Section>
       <Section title="Workplace">
         <p>
-          Get data and send answer <Link to="/workplace">here</Link>
+          Get data and send answer{" "}
+          <Link to="/workplace" reloadDocument>
+            here
+          </Link>
         </p>
       </Section>
     </div>
