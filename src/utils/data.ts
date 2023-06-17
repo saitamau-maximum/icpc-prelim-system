@@ -6,6 +6,8 @@ export interface Problem {
   completed: boolean;
 }
 
+export type ProblemKey = "j" | "k" | "l" | "m";
+
 interface Data {
   j: Problem;
   k: Problem;
