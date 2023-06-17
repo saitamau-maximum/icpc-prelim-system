@@ -8,7 +8,7 @@ export default function Index() {
       <br />
       Password: <input type="password" />
       <br />
-      <a href={convertPath("/top/")}>Login</a>
+      <a href={convertPath("/top")}>Login</a>
     </>
   );
 }

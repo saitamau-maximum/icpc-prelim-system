@@ -12,8 +12,15 @@ function App() {
     location.pathname = location.pathname.replace(/\/+/g, "/");
     return;
   }
-  if (!location.pathname.endsWith("/")) {
-    location.pathname += "/";
+  if (location.pathname === convertPath("/").slice(0, -1)) {
+    location.pathname = convertPath("/");
+    return;
+  }
+  if (
+    location.pathname.endsWith("/") &&
+    location.pathname !== convertPath("/")
+  ) {
+    location.pathname = location.pathname.slice(0, -1);
     return;
   }
 
@@ -25,7 +32,7 @@ function App() {
           <></>
         ) : (
           <section className="App-sidebar">
-            <a href={convertPath("/top/")}>Top</a>
+            <a href={convertPath("/top")}>Top</a>
             <br />
             Problems:
             <table>
@@ -62,22 +69,22 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <a href={convertPath("/workspace/")}>Workspace</a>
+            <a href={convertPath("/workspace")}>Workspace</a>
             <br />
-            <a href={convertPath("/standings/")}>Standings</a>
+            <a href={convertPath("/standings")}>Standings</a>
             <br />
             <a href={convertPath("/")}>Log Out</a>
             <br />
-            <a href={convertPath("/help/")}>Help</a>
+            <a href={convertPath("/help")}>Help</a>
             <br />
-            <a href={convertPath("/contact/")}>Contact Info</a>
+            <a href={convertPath("/contact")}>Contact Info</a>
           </section>
         )}
         <main>
           <Router>
             <Routes>
               <Route path={convertPath("/")} element={<Home />} />
-              <Route path={convertPath("/top/")} element={<Top />} />
+              <Route path={convertPath("/top")} element={<Top />} />
             </Routes>
           </Router>
         </main>
