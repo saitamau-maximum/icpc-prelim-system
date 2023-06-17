@@ -9,6 +9,7 @@ import Workspace from "./pages/workspace";
 import Standings from "./pages/standings";
 import Help from "./pages/help";
 import Contact from "./pages/contact";
+import List from "./pages/list";
 
 function App() {
   // URL 正規化
@@ -28,12 +29,16 @@ function App() {
     return;
   }
 
+  let loggedIn = true;
+  if (location.pathname === convertPath("/")) loggedIn = false;
+  if (location.pathname === convertPath("/list")) loggedIn = false;
+
   return (
     <div className="App">
       <header className="App-header">Maximum ICPC Practice System</header>
       <Router basename={process.env.PUBLIC_URL}>
         <div className="container">
-          {location.pathname === convertPath("/") ? (
+          {!loggedIn ? (
             <></>
           ) : (
             <section className="App-sidebar">
@@ -106,6 +111,7 @@ function App() {
               <Route path="/standings" element={<Standings />} />
               <Route path="/help" element={<Help />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/list" element={<List />} />
             </Routes>
           </main>
         </div>
