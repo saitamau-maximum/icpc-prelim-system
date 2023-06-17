@@ -10,6 +10,7 @@ import Standings from "./pages/standings";
 import Help from "./pages/help";
 import Contact from "./pages/contact";
 import List from "./pages/list";
+import Result from "./pages/result";
 
 function App() {
   // URL 正規化
@@ -112,6 +113,7 @@ function App() {
               <Route path="/help" element={<Help />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/list" element={<List />} />
+              <Route path="/result" element={<Result />} />
             </Routes>
           </main>
         </div>
