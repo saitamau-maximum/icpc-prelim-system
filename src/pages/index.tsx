@@ -6,7 +6,7 @@ export default function Index() {
       <br />
       Password: <input type="password" />
       <br />
-      <a href="/top">Login</a>
+      <a href="%PUBLIC_URL%/top">Login</a>
     </>
   );
 }

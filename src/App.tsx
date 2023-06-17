@@ -12,11 +12,11 @@ function App() {
     <div className="App">
       <header className="App-header">Maximum ICPC Practice System</header>
       <div className="container">
-        {location.pathname === "/" ? (
+        {location.pathname === "%PUBLIC_URL%/" ? (
           <></>
         ) : (
           <section className="App-sidebar">
-            <a href="/top">Top</a>
+            <a href="%PUBLIC_URL%/top">Top</a>
             <br />
             Problems:
             <table>
@@ -53,22 +53,22 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <a href="/workspace">Workspace</a>
+            <a href="%PUBLIC_URL%/workspace">Workspace</a>
             <br />
-            <a href="/standings">Standings</a>
+            <a href="%PUBLIC_URL%/standings">Standings</a>
             <br />
-            <a href="/">Log Out</a>
+            <a href="%PUBLIC_URL%/">Log Out</a>
             <br />
-            <a href="/help">Help</a>
+            <a href="%PUBLIC_URL%/help">Help</a>
             <br />
-            <a href="/contact">Contact Info</a>
+            <a href="%PUBLIC_URL%/contact">Contact Info</a>
           </section>
         )}
         <main>
           <Router>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/top" element={<Top />} />
+              <Route path="%PUBLIC_URL%/" element={<Home />} />
+              <Route path="%PUBLIC_URL%/top" element={<Top />} />
             </Routes>
           </Router>
         </main>
