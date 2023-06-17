@@ -1,32 +1,14 @@
 import { Link } from "react-router-dom";
 
-import "./top.css";
 import Section from "../components/section";
+import Stage from "../components/stage";
+import Progress from "../components/progress";
 
 export default function top() {
   return (
     <>
-      <Section title="Stage: rehearsal">
-        <p>The rehearsal is in progress. The rehearsal will end at xx:xx.</p>
-      </Section>
-      <Section title="Team 0: You">
-        <table>
-          <tbody>
-            <tr>
-              <td>J</td>
-              <td>K</td>
-              <td>L</td>
-              <td>M</td>
-            </tr>
-            <tr className="progress">
-              <td className="blue"></td>
-              <td className="blue"></td>
-              <td className="blue"></td>
-              <td className="blue"></td>
-            </tr>
-          </tbody>
-        </table>
-      </Section>
+      <Stage />
+      <Progress />
       <Section title="Problems">
         <table>
           <tbody>
