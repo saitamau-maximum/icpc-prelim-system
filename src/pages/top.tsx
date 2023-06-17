@@ -14,33 +14,73 @@ export default function Top() {
           <tbody>
             <tr>
               <td>All Problems:</td>
-              <td>English</td>
+              <td>
+                <Link to="/problem?lang=en" reloadDocument>
+                  English
+                </Link>
+              </td>
               <td>/</td>
-              <td>Japanese</td>
+              <td>
+                <Link to="/problem" reloadDocument>
+                  Japanese
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Problem J:</td>
-              <td>English</td>
+              <td>
+                <Link to="/problem?lang=en&problem=j" reloadDocument>
+                  English
+                </Link>
+              </td>
               <td>/</td>
-              <td>Japanese</td>
+              <td>
+                <Link to="/problem?problem=j" reloadDocument>
+                  Japanese
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Problem K:</td>
-              <td>English</td>
+              <td>
+                <Link to="/problem?lang=en&problem=k" reloadDocument>
+                  English
+                </Link>
+              </td>
               <td>/</td>
-              <td>Japanese</td>
+              <td>
+                <Link to="/problem?problem=k" reloadDocument>
+                  Japanese
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Problem L:</td>
-              <td>English</td>
+              <td>
+                <Link to="/problem?lang=en&problem=l" reloadDocument>
+                  English
+                </Link>
+              </td>
               <td>/</td>
-              <td>Japanese</td>
+              <td>
+                <Link to="/problem?problem=l" reloadDocument>
+                  Japanese
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Problem M:</td>
-              <td>English</td>
+              <td>
+                <Link to="/problem?lang=en&problem=m" reloadDocument>
+                  English
+                </Link>
+              </td>
               <td>/</td>
-              <td>Japanese</td>
+              <td>
+                <Link to="/problem?problem=m" reloadDocument>
+                  Japanese
+                </Link>
+              </td>
             </tr>
           </tbody>
         </table>

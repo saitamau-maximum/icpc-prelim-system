@@ -54,33 +54,73 @@ function App() {
                 <tbody>
                   <tr>
                     <td>ALL:</td>
-                    <td>En</td>
+                    <td>
+                      <Link to="/problem?lang=en" reloadDocument>
+                        En
+                      </Link>
+                    </td>
                     <td>/</td>
-                    <td>Ja</td>
+                    <td>
+                      <Link to="/problem" reloadDocument>
+                        Ja
+                      </Link>
+                    </td>
                   </tr>
                   <tr>
                     <td>J:</td>
-                    <td>En</td>
+                    <td>
+                      <Link to="/problem?lang=en&problem=j" reloadDocument>
+                        En
+                      </Link>
+                    </td>
                     <td>/</td>
-                    <td>Ja</td>
+                    <td>
+                      <Link to="/problem?problem=j" reloadDocument>
+                        Ja
+                      </Link>
+                    </td>
                   </tr>
                   <tr>
                     <td>K:</td>
-                    <td>En</td>
+                    <td>
+                      <Link to="/problem?lang=en&problem=k" reloadDocument>
+                        En
+                      </Link>
+                    </td>
                     <td>/</td>
-                    <td>Ja</td>
+                    <td>
+                      <Link to="/problem?problem=k" reloadDocument>
+                        Ja
+                      </Link>
+                    </td>
                   </tr>
                   <tr>
                     <td>L:</td>
-                    <td>En</td>
+                    <td>
+                      <Link to="/problem?lang=en&problem=l" reloadDocument>
+                        En
+                      </Link>
+                    </td>
                     <td>/</td>
-                    <td>Ja</td>
+                    <td>
+                      <Link to="/problem?problem=l" reloadDocument>
+                        Ja
+                      </Link>
+                    </td>
                   </tr>
                   <tr>
                     <td>M:</td>
-                    <td>En</td>
+                    <td>
+                      <Link to="/problem?lang=en&problem=m" reloadDocument>
+                        En
+                      </Link>
+                    </td>
                     <td>/</td>
-                    <td>Ja</td>
+                    <td>
+                      <Link to="/problem?problem=m" reloadDocument>
+                        Ja
+                      </Link>
+                    </td>
                   </tr>
                 </tbody>
               </table>
