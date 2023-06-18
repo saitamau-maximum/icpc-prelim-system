@@ -66,7 +66,7 @@ export default function Result() {
               </span>
             </p>
             <p>Proceed to the next data.</p>
-            {data[problemid].no != 2 && (
+            {data[problemid].no !== 2 && (
               <p>
                 Recall that to finish a problem, you need to correctly answer
                 two data <i>in a row, with the same program.</i>
@@ -114,7 +114,7 @@ export default function Result() {
               <span className="red">Wrong answer.</span>
             </p>
             <p>Try again.</p>
-            {data[problemid].no != 1 && (
+            {data[problemid].no !== 1 && (
               <p>
                 You need to correctly answer <i>two more data.</i> Recall that
                 to finish a problem, you need to correctly answer two data{" "}
