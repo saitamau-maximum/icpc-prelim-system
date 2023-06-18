@@ -12,7 +12,9 @@ export default function ProblemKJa() {
           つ以上の整数が入力として与えられる。すべての整数は正で、 10,000
           以下である。
         </p>
-        <p>入力の終わりは 0 で示される。</p>
+        <p>
+          入力の終わりは 0 で示される。与えられる整数は 10,000 個以下である。
+        </p>
       </Section>
       <Section title="Output" color="#78f" nomargin>
         <p>最大値を出力しなさい。</p>

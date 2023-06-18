@@ -20,7 +20,10 @@ export default function ProblemKEn() {
           integer. All the integer numbers are positive and less than or equal
           to 10,000.
         </p>
-        <p>The end of the input is indicated by a zero</p>
+        <p>
+          The end of the input is indicated by a zero. The length of the
+          sequence is less than or equal to 10,000.
+        </p>
       </Section>
       <Section title="Output" color="#78f" nomargin>
         <p>The largest integer among the integers should be printed.</p>
