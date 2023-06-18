@@ -2,7 +2,7 @@ use rand;
 use rand::prelude::*;
 use rand_chacha::ChaCha8Rng;
 
-pub fn generate_testcase_m(caseid: u64) -> Vec<(i32, i32, i32, i32)> {
+pub fn generate(caseid: u64) -> Vec<(i32, i32, i32, i32)> {
     let mut rng = ChaCha8Rng::seed_from_u64(caseid);
     let mut ret = Vec::new();
     for _ in 0..100 {
@@ -27,7 +27,7 @@ fn gcd(a: i32, b: i32) -> i32 {
     }
 }
 
-fn modelans_m(testcase: &Vec<(i32, i32, i32, i32)>) -> Vec<i32> {
+fn modelans(testcase: &Vec<(i32, i32, i32, i32)>) -> Vec<i32> {
     let mut ret = Vec::new();
     for (a, b, c, d) in testcase {
         if *a == 0 && *b == 0 && *c == 0 && *d == 0 {
@@ -41,9 +41,9 @@ fn modelans_m(testcase: &Vec<(i32, i32, i32, i32)>) -> Vec<i32> {
     ret
 }
 
-pub fn validate_testcase_m(testid: u64, ans: &str) -> bool {
-    let testcase = generate_testcase_m(testid);
-    let modelans = modelans_m(&testcase);
+pub fn validate(testid: u64, ans: &str) -> bool {
+    let testcase = generate(testid);
+    let modelans = modelans(&testcase);
     let mut vans = Vec::new();
     for line in ans.lines() {
         vans.push(line.parse::<i32>().unwrap());
