@@ -1,5 +1,6 @@
 mod problemj;
 mod problemk;
+mod probleml;
 
 use wasm_bindgen::prelude::*;
 
@@ -28,6 +29,15 @@ pub fn generate_testcase(problemid: &str, caseid: i32) -> String {
         }
         return ret;
     }
+    if problemid == "l" {
+        let testcase = probleml::generate_testcase_l(caseid as u64);
+        let mut ret = String::new();
+        for (x, y) in testcase {
+            ret.push_str(&format!("{} {}\n", x, y));
+        }
+        return ret;
+    }
+
     // TODO: Implement
     String::from("Not implemented")
 }
@@ -41,6 +51,9 @@ pub fn validate_testcase(problemid: &str, caseid: i32, ans: &str) -> bool {
     }
     if problemid == "k" {
         return problemk::validate_testcase_k(caseid as u64, ans);
+    }
+    if problemid == "l" {
+        return probleml::validate_testcase_l(caseid as u64, ans);
     }
     // TODO: Implement
     true
