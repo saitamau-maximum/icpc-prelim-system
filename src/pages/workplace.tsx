@@ -21,7 +21,14 @@ export default function Workplace() {
       const state = getData();
       const testnum = state[problemid].no;
 
-      generate_testcase(problemid, testnum);
+      const testcase = generate_testcase(problemid, testnum);
+
+      const blob = new Blob([testcase], { type: "text/plain" });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${problemid.toUpperCase()}.txt`;
+      a.click();
 
       return false;
     })();
@@ -43,7 +50,32 @@ export default function Workplace() {
       const state = getData();
       const testnum = state[problemid].no;
 
-      validate_testcase(problemid, testnum, anssource);
+      if (
+        state[problemid].code !== progsource &&
+        state[problemid].firstCleared
+      ) {
+        state[problemid].differentProgram = true;
+      } else {
+        state[problemid].differentProgram = false;
+      }
+      state[problemid].code = progsource;
+
+      const res = validate_testcase(problemid, testnum, anssource);
+      if (res) {
+        if (
+          state[problemid].firstCleared &&
+          !state[problemid].differentProgram
+        ) {
+          state[problemid].completed = true;
+        }
+        state[problemid].no++;
+        state[problemid].firstCleared = true;
+      } else {
+        state[problemid].firstCleared = false;
+      }
+
+      setData(state);
+      location.href = `result#${problemid}`;
     })();
   };
 
@@ -63,7 +95,9 @@ export default function Workplace() {
               <td>Problem J:</td>
               <td>
                 {problemAvailable(data.j) ? (
-                  <>Data No.{data.j.no}</>
+                  <a href="#" onClick={() => inDLHandler("j")}>
+                    Data No.{data.j.no}
+                  </a>
                 ) : (
                   <>No data available</>
                 )}
@@ -73,7 +107,9 @@ export default function Workplace() {
               <td>Problem K:</td>
               <td>
                 {problemAvailable(data.k) ? (
-                  <>Data No.{data.k.no}</>
+                  <a href="#" onClick={() => inDLHandler("k")}>
+                    Data No.{data.k.no}
+                  </a>
                 ) : (
                   <>No data available</>
                 )}
@@ -83,7 +119,9 @@ export default function Workplace() {
               <td>Problem L:</td>
               <td>
                 {problemAvailable(data.l) ? (
-                  <>Data No.{data.l.no}</>
+                  <a href="#" onClick={() => inDLHandler("l")}>
+                    Data No.{data.l.no}
+                  </a>
                 ) : (
                   <>No data available</>
                 )}
@@ -93,7 +131,9 @@ export default function Workplace() {
               <td>Problem M:</td>
               <td>
                 {problemAvailable(data.m) ? (
-                  <>Data No.{data.m.no}</>
+                  <a href="#" onClick={() => inDLHandler("m")}>
+                    Data No.{data.m.no}
+                  </a>
                 ) : (
                   <>No data available</>
                 )}

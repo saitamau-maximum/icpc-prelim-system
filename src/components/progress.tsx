@@ -3,8 +3,8 @@ import "./progress.css";
 import { getData, type Problem } from "../utils/data";
 
 const data2progress = (data: Problem): string => {
-  if (data.no > 4) return "red";
   if (data.completed) return "green";
+  if (data.no > 4) return "red";
   if (data.firstCleared) return "yellow";
   return "blue";
 };
