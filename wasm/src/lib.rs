@@ -1,13 +1,10 @@
 mod problemj;
 mod problemk;
 mod probleml;
+mod problemm;
 
+use core::panic;
 use wasm_bindgen::prelude::*;
-
-#[wasm_bindgen]
-extern "C" {
-    // pub fn alert(s: &str);
-}
 
 #[wasm_bindgen]
 pub fn generate_testcase(problemid: &str, caseid: i32) -> String {
@@ -37,9 +34,16 @@ pub fn generate_testcase(problemid: &str, caseid: i32) -> String {
         }
         return ret;
     }
+    if problemid == "m" {
+        let testcase = problemm::generate_testcase_m(caseid as u64);
+        let mut ret = String::new();
+        for (a, b, c, d) in testcase {
+            ret.push_str(&format!("{} {} {} {}\n", a, b, c, d));
+        }
+        return ret;
+    }
 
-    // TODO: Implement
-    String::from("Not implemented")
+    panic!("Invalid problemid");
 }
 
 #[wasm_bindgen]
@@ -55,6 +59,9 @@ pub fn validate_testcase(problemid: &str, caseid: i32, ans: &str) -> bool {
     if problemid == "l" {
         return probleml::validate_testcase_l(caseid as u64, ans);
     }
-    // TODO: Implement
-    true
+    if problemid == "m" {
+        return problemm::validate_testcase_m(caseid as u64, ans);
+    }
+
+    panic!("Invalid problemid");
 }
