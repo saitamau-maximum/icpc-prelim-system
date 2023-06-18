@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 
 import "./index.css";
+import { resetData } from "../utils/data";
 
 export default function Index() {
+  const reset = () => {
+    if (window.confirm("本当にリセットしますか？")) {
+      resetData();
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="Login">
       <p>Please input your team ID (number) and the password.</p>
@@ -32,6 +40,9 @@ export default function Index() {
         <Link to="/list" reloadDocument>
           List of teams
         </Link>
+      </p>
+      <p>
+        <button onClick={reset}>進捗リセット</button>
       </p>
     </div>
   );

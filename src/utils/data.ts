@@ -40,3 +40,7 @@ export const getData = () => {
 export const setData = (data: Data) => {
   localStorage.setItem("data", JSON.stringify(data));
 };
+
+export const resetData = () => {
+  setData(initialData);
+};
