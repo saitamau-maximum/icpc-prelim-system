@@ -19,13 +19,13 @@ export default function Index() {
           <tr>
             <td>team ID:</td>
             <td>
-              <input type="text" width={10} />
+              <input type="text" size={5} />
             </td>
           </tr>
           <tr>
             <td>password:</td>
             <td>
-              <input type="password" />
+              <input type="password" size={10} />
             </td>
           </tr>
         </tbody>
