@@ -1,8 +1,6 @@
 export interface Problem {
   no: number;
-  code: string;
-  firstCleared: boolean;
-  differentProgram: boolean;
+  dlTime: number | null;
   completed: boolean;
 }
 
@@ -16,10 +14,8 @@ interface Data {
 }
 
 const initialProblemData: Problem = {
-  firstCleared: false,
   no: 1,
-  code: "",
-  differentProgram: false,
+  dlTime: null,
   completed: false,
 };
 

@@ -44,6 +44,7 @@ export default function Index() {
       <p>
         <button onClick={reset}>進捗リセット</button>
       </p>
+      <p>(適当に入力すれば log in できます)</p>
     </div>
   );
 }

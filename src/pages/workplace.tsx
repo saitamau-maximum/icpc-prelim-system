@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 import Stage from "../components/stage";
 import Progress from "../components/progress";
 import Section from "../components/section";
@@ -18,8 +20,14 @@ export default function Workplace() {
         await sleep(1000);
       }
 
+      const now = dayjs();
       const state = getData();
       const testnum = state[problemid].no;
+
+      if (state[problemid].dlTime === null) {
+        state[problemid].dlTime = now.valueOf();
+        setData(state);
+      }
 
       const testcase = generate_testcase(problemid, testnum);
 
@@ -37,41 +45,32 @@ export default function Workplace() {
   const sendHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     (async () => {
+      const now = dayjs();
+
       if (!wasmLoaded) {
         await sleep(1000);
       }
 
       const problemid = (e.target as any).problem.value as ProblemKey;
       const ansfile = (e.target as any).ansfile.files[0];
-      const progfile = (e.target as any).progfile.files[0];
       const anssource = await ansfile.text();
-      const progsource = await progfile.text();
 
       const state = getData();
       const testnum = state[problemid].no;
 
-      if (
-        state[problemid].code !== progsource &&
-        state[problemid].firstCleared
-      ) {
-        state[problemid].differentProgram = true;
-      } else {
-        state[problemid].differentProgram = false;
+      if (state[problemid].dlTime === null) {
+        alert("You need to download the data first.");
+        return;
       }
-      state[problemid].code = progsource;
 
       const res = validate_testcase(problemid, testnum, anssource);
       if (res) {
-        if (
-          state[problemid].firstCleared &&
-          !state[problemid].differentProgram
-        ) {
+        if (now.diff(dayjs(state[problemid].dlTime), "minute", true) < 6) {
           state[problemid].completed = true;
+        } else {
+          state[problemid].dlTime = null;
+          state[problemid].no++;
         }
-        state[problemid].no++;
-        state[problemid].firstCleared = true;
-      } else {
-        state[problemid].firstCleared = false;
       }
 
       setData(state);
@@ -89,6 +88,15 @@ export default function Workplace() {
       <Stage />
       <Progress />
       <Section title="Get Data">
+        <p style={{ textAlign: "right" }}>
+          <i>Server Time: {dayjs().format("HH:mm:ss")}</i>
+        </p>
+        <p>
+          The <b>6-minutes</b> countdown will start when you click the download
+          links below. To complete the problem, you need to submit a correct
+          answer within the time. You can still submit after the countdown is
+          over.
+        </p>
         <table>
           <tbody>
             <tr>
