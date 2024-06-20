@@ -28,7 +28,11 @@ pub fn validate(testid: u64, ans: &str) -> bool {
     let modelans = modelans(&testcase);
     let mut vans = Vec::new();
     for line in ans.lines() {
-        vans.push(line.parse::<i32>().unwrap());
+        let val = line.parse::<i32>();
+        if val.is_err() {
+            return false;
+        }
+        vans.push(val.unwrap());
     }
     vans == modelans
 }
