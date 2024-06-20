@@ -8,7 +8,7 @@ Imitation of ICPC Prelim System for Practice
 
 ### Requirements
 
-- Node.js v18.16.0 or higher
+- Node.js v20 or higher
 - Cargo v1.70.0 or higher
 
 ### Setup
