@@ -7,12 +7,19 @@ import Section from "../components/section";
 import init, { generate_testcase, validate_testcase } from "../wasm/wasm";
 import sleep from "../utils/sleep";
 import { Problem, ProblemKey, getData, setData } from "../utils/data";
+import { useState } from "react";
+import useInterval from "../hooks/useInterval";
 
 export default function Workplace() {
   let wasmLoaded = false;
   init().then(() => {
     wasmLoaded = true;
   });
+
+  const [now4display, setNow4display] = useState(dayjs());
+  useInterval(() => {
+    setNow4display(dayjs());
+  }, 100);
 
   const inDLHandler = (problemid: ProblemKey) => {
     (async () => {
@@ -79,6 +86,41 @@ export default function Workplace() {
   };
 
   const data = getData();
+
+  const problemData = (id: ProblemKey) => {
+    if (data[id].completed) {
+      return <>You have finished this problem.</>;
+    }
+    if (data[id].no > 4) {
+      return <>No data available</>;
+    }
+    if (data[id].dlTime !== null) {
+      const dueTime = dayjs(data[id].dlTime).add(6, "minutes");
+      let diff = dueTime.diff(now4display, "second");
+      if (diff < 0) diff = 0;
+      return (
+        <>
+          <a href="#" onClick={() => inDLHandler(id)}>
+            Data No.{data[id].no}
+          </a>
+          <span>
+            {" "}
+            Remaining time {Math.floor(diff / 60)}:
+            {(diff % 60).toString().padStart(2, "0")}
+          </span>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <a href="#" onClick={() => inDLHandler(id)}>
+          Data No.{data[id].no}
+        </a>
+      </>
+    );
+  };
+
   const problemAvailable = (problem: Problem) => {
     return !problem.completed && problem.no < 5;
   };
@@ -89,7 +131,7 @@ export default function Workplace() {
       <Progress />
       <Section title="Get Data">
         <p style={{ textAlign: "right" }}>
-          <i>Server Time: {dayjs().format("HH:mm:ss")}</i>
+          <i>Server Time: {now4display.format("HH:mm:ss")}</i>
         </p>
         <p>
           The <b>6-minutes</b> countdown will start when you click the download
@@ -101,51 +143,19 @@ export default function Workplace() {
           <tbody>
             <tr>
               <td>Problem J:</td>
-              <td>
-                {problemAvailable(data.j) ? (
-                  <a href="#" onClick={() => inDLHandler("j")}>
-                    Data No.{data.j.no}
-                  </a>
-                ) : (
-                  <>No data available</>
-                )}
-              </td>
+              <td>{problemData("j")}</td>
             </tr>
             <tr>
               <td>Problem K:</td>
-              <td>
-                {problemAvailable(data.k) ? (
-                  <a href="#" onClick={() => inDLHandler("k")}>
-                    Data No.{data.k.no}
-                  </a>
-                ) : (
-                  <>No data available</>
-                )}
-              </td>
+              <td>{problemData("k")}</td>
             </tr>
             <tr>
               <td>Problem L:</td>
-              <td>
-                {problemAvailable(data.l) ? (
-                  <a href="#" onClick={() => inDLHandler("l")}>
-                    Data No.{data.l.no}
-                  </a>
-                ) : (
-                  <>No data available</>
-                )}
-              </td>
+              <td>{problemData("l")}</td>
             </tr>
             <tr>
               <td>Problem M:</td>
-              <td>
-                {problemAvailable(data.m) ? (
-                  <a href="#" onClick={() => inDLHandler("m")}>
-                    Data No.{data.m.no}
-                  </a>
-                ) : (
-                  <>No data available</>
-                )}
-              </td>
+              <td>{problemData("m")}</td>
             </tr>
           </tbody>
         </table>

@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import Section from "../components/section";
 import { ProblemKey, getData } from "../utils/data";
 import "./result.css";
+import dayjs from "dayjs";
 
 export default function Result() {
+  const now = dayjs();
+
   const data = getData();
   const problemid = location.hash.replace("#", "") as ProblemKey;
   if (!"jklm".split("").includes(problemid)) {
@@ -77,7 +80,7 @@ export default function Result() {
         </div>
       );
     }
-  } else {
+  } else if (now.diff(dayjs(data[problemid].dlTime), "minute", true) < 6) {
     return (
       <div>
         <Section title="Result" color="#ffa500" border="#ffc660">
@@ -88,6 +91,22 @@ export default function Result() {
             You still have a chance to complete the problem by submitting a
             correct answer before the submission deadline.
           </p>
+          <p>
+            <Link to="/top" reloadDocument>
+              <span className="red">Go Back</span>
+            </Link>
+          </p>
+        </Section>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Section title="Result" color="#ffa500" border="#ffc660">
+          <p>
+            <b>Wrong answer.</b>
+          </p>
+          <p>Try again.</p>
           <p>
             <Link to="/top" reloadDocument>
               <span className="red">Go Back</span>
